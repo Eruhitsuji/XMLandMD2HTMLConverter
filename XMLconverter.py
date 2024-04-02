@@ -197,7 +197,7 @@ class SiteMap():
         r=[]
         for page in self.page_list:
             tmp={
-                "loc":str(page["path"]),
+                "loc":self.domain+str(page["path"]),
                 "page_title":page.get("title","None Title"),
                 "lastmod":page["update_date"].strftime("%Y-%m-%d"),
                 "priority":float(page.get("priority",1)),
