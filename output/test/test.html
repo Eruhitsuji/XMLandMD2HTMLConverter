@@ -1,0 +1,226 @@
+<script>(function(t_str='test_x'){document.title=t_str;}());</script><!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset="utf-8">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../data/main.css"/>
+
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>
+    mermaid.initialize ({
+        startOnLoad: true, 
+        theme: 'defalt'
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"  defer="defer"></script>
+    
+</head>
+<body>
+<h1>Markdown test</h1>
+<h2 id="table-of-contents" tabindex="-1">Table of Contents <a class="header-anchor" href="#table-of-contents">¶</a></h2>
+<p><div class="table-of-contents"><ul><li><a href="#table-of-contents">Table of Contents </a></li><li><a href="#alert">Alert </a></li><li><a href="#footnote">Footnote </a></li><li><a href="#mermaid">Mermaid </a></li><li><a href="#math">Math </a></li><li><a href="#youtube">YouTube </a></li><li><a href="#headings">Headings </a></li><li><a href="#h2-heading">h2 Heading </a><ul><li><a href="#h3-heading">h3 Heading </a><ul><li><a href="#h4-heading">h4 Heading </a></li></ul></li></ul></li><li><a href="#text-emphasis">Text emphasis </a></li><li><a href="#link">Link </a><ul><li><a href="#named-links">Named links </a></li><li><a href="#url">URL </a></li></ul></li><li><a href="#table">Table </a></li><li><a href="#list">List </a><ul><li><a href="#unordered-list">Unordered list </a></li><li><a href="#ordered-list">Ordered list </a></li><li><a href="#check-list">Check list </a></li></ul></li><li><a href="#description-list">Description list </a></li><li><a href="#reference">Reference </a></li><li><a href="#image">Image </a></li><li><a href="#horizon-line">Horizon line </a></li><li><a href="#cord">Cord </a><ul><li><a href="#javascript">JavaScript </a></li><li><a href="#python">Python </a></li></ul></li><li><a href="#html-converter-for-server-created">HTML converter for server created </a></li><li><a href="#special-character">Special character </a></li></ul></div></p>
+<h2 id="alert" tabindex="-1">Alert <a class="header-anchor" href="#alert">¶</a></h2>
+<ul>
+<li>
+<p>success</p>
+<div class="alert alert-success" role="alert">
+<p>Hello world! <a href="#" class="alert-link">Link</a>.</p>
+</div>
+</li>
+<li>
+<p>info</p>
+<div class="alert alert-info" role="alert">
+<p>Hello world! <a href="#" class="alert-link">Link</a>.</p>
+</div>
+</li>
+<li>
+<p>warning</p>
+<div class="alert alert-warning" role="alert">
+<p>Hello world! <a href="#" class="alert-link">Link</a>.</p>
+</div>
+</li>
+<li>
+<p>danger</p>
+<div class="alert alert-danger" role="alert">
+<p>Hello world! <a href="#" class="alert-link">Link</a>.</p>
+</div>
+</li>
+</ul>
+<h2 id="footnote" tabindex="-1">Footnote <a class="header-anchor" href="#footnote">¶</a></h2>
+<p>Here is a footnote reference,<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> and another.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
+<h2 id="mermaid" tabindex="-1">Mermaid <a class="header-anchor" href="#mermaid">¶</a></h2>
+<div class="mermaid">graph LR
+    A-->B;
+    B-->C1;
+    B-->C2;
+    C1-->D;
+    C2-->D;</div><h2 id="math" tabindex="-1">Math <a class="header-anchor" href="#math">¶</a></h2>
+<math display="block"><mi>P</mi><mfenced open="(" close=")"><mrow><mi>A</mi><mo stretchy="true" lspace="veryverythickmathspace" rspace="veryverythickmathspace">|</mo><mi>B</mi></mrow></mfenced><mo>=</mo><mfrac><mrow><mi>P</mi><mfenced open="(" close=")"><mrow><mi>B</mi><mo stretchy="true" lspace="veryverythickmathspace" rspace="veryverythickmathspace">|</mo><mi>A</mi></mrow></mfenced><mi>P</mi><mfenced open="(" close=")"><mi>A</mi></mfenced></mrow><mrow><mi>P</mi><mfenced open="(" close=")"><mi>B</mi></mfenced></mrow></mfrac></math>
+<h2 id="youtube" tabindex="-1">YouTube <a class="header-anchor" href="#youtube">¶</a></h2>
+<div class="video-embed block-embed-service-youtube"><iframe type="text/html" src="//www.youtube.com/embed/lJIrF4YjHfQ" frameborder="0" width="640" height="390" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+<h2 id="headings" tabindex="-1">Headings <a class="header-anchor" href="#headings">¶</a></h2>
+<h1>h1 Heading</h1>
+<h2 id="h2-heading" tabindex="-1">h2 Heading <a class="header-anchor" href="#h2-heading">¶</a></h2>
+<h3 id="h3-heading" tabindex="-1">h3 Heading <a class="header-anchor" href="#h3-heading">¶</a></h3>
+<h4 id="h4-heading" tabindex="-1">h4 Heading <a class="header-anchor" href="#h4-heading">¶</a></h4>
+<h5 id="h5-heading" tabindex="-1">h5 Heading <a class="header-anchor" href="#h5-heading">¶</a></h5>
+<h6 id="h6-heading" tabindex="-1">h6 Heading <a class="header-anchor" href="#h6-heading">¶</a></h6>
+<h2 id="text-emphasis" tabindex="-1">Text emphasis <a class="header-anchor" href="#text-emphasis">¶</a></h2>
+<p><em>italic</em></p>
+<p><s>strikethrough</s></p>
+<p><strong>bold</strong></p>
+<p><em><strong>bold and italic</strong></em></p>
+<p><mark>highlight</mark></p>
+<h2 id="link" tabindex="-1">Link <a class="header-anchor" href="#link">¶</a></h2>
+<h3 id="named-links" tabindex="-1">Named links <a class="header-anchor" href="#named-links">¶</a></h3>
+<p><a href="https://www.google.com/">google</a></p>
+<h3 id="url" tabindex="-1">URL <a class="header-anchor" href="#url">¶</a></h3>
+<p><a href="https://www.google.com/">https://www.google.com/</a></p>
+<h2 id="table" tabindex="-1">Table <a class="header-anchor" href="#table">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Header 01</th>
+<th>Header 02</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contents11</td>
+<td>Contents12</td>
+</tr>
+<tr>
+<td>Contents21</td>
+<td>Contents22</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list" tabindex="-1">List <a class="header-anchor" href="#list">¶</a></h2>
+<h3 id="unordered-list" tabindex="-1">Unordered list <a class="header-anchor" href="#unordered-list">¶</a></h3>
+<ul>
+<li>A
+<ul>
+<li>A1</li>
+<li>A2
+<ul>
+<li>A1-1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>B</li>
+</ul>
+<h3 id="ordered-list" tabindex="-1">Ordered list <a class="header-anchor" href="#ordered-list">¶</a></h3>
+<ol>
+<li>A
+<ol>
+<li>A1</li>
+<li>A2
+<ol>
+<li>A1-1</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>B</li>
+</ol>
+<h3 id="check-list" tabindex="-1">Check list <a class="header-anchor" href="#check-list">¶</a></h3>
+<ul>
+<li>[ ] A</li>
+<li>[x] B</li>
+<li>[ ] C</li>
+</ul>
+<h2 id="description-list" tabindex="-1">Description list <a class="header-anchor" href="#description-list">¶</a></h2>
+<dl>
+<dt>Name 1</dt>
+<dd>Def1A
+Def1B</dd>
+<dt>Name2 <em>Name Markup</em></dt>
+<dd>Def2</dd>
+</dl>
+<h2 id="reference" tabindex="-1">Reference <a class="header-anchor" href="#reference">¶</a></h2>
+<blockquote>
+<p>Reference A</p>
+<blockquote>
+<p>Reference AA</p>
+<blockquote>
+<p>Reference AAA</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Reference B</p>
+</blockquote>
+<h2 id="image" tabindex="-1">Image <a class="header-anchor" href="#image">¶</a></h2>
+<p><img src="https://picsum.photos/200/50" alt="Img Alt" title="Img Title"></p>
+<h2 id="horizon-line" tabindex="-1">Horizon line <a class="header-anchor" href="#horizon-line">¶</a></h2>
+<hr>
+<h2 id="cord" tabindex="-1">Cord <a class="header-anchor" href="#cord">¶</a></h2>
+<h3 id="javascript" tabindex="-1">JavaScript <a class="header-anchor" href="#javascript">¶</a></h3>
+<pre><code class="language-js">var foo = function (bar) {
+    return bar++;
+};
+
+console.log(foo(5));
+</code></pre>
+<h3 id="python" tabindex="-1">Python <a class="header-anchor" href="#python">¶</a></h3>
+<pre><code class="language-python">def foo(bar):
+  return bar+=1
+
+print(foo(5))
+</code></pre>
+<h2 id="html-converter-for-server-created" tabindex="-1">HTML converter for server created <a class="header-anchor" href="#html-converter-for-server-created">¶</a></h2>
+<p><a href="https://github.com/Eruhitsuji/XMLandMD2HTMLConverter">https://github.com/Eruhitsuji/XMLandMD2HTMLConverter</a></p>
+<p>This project allows you to convert from XML to HTML, including HTML and Markdown.</p>
+<h2 id="special-character" tabindex="-1">Special character <a class="header-anchor" href="#special-character">¶</a></h2>
+<p>The three symbols <,>," will eventually be converted and may not be displayed in this project.
+The same applies to the special characters <code>&amp;lt;</code>, <code>&amp;gt;</code>, and <code>&amp;quot;</code> in HTML.
+To solve those cases, try prefixing the sign with "rt_" and assigning <code>&amp;rt_lt;</code>, <code>&amp;rt_gt;</code> and <code>&amp;rt_quot;</code>.</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Here is the footnote. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Here's one with multiple blocks.
+Subsequent paragraphs are indented to show that theybelong to the previous footnote. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+<h1>test</h1>
+<p>ABC</p>
+<ul>
+<li>A</li>
+<li>B</li>
+<li>C</li>
+</ul>
+
+
+<p>abc</p>
+
+<b>text test</b>
+<div>
+<h1>append data</h1>
+<p>
+    append 01
+    &lt;p&gt;
+    &quot;abc&quot;
+</p>
+
+<p>
+    append 02
+</p>
+</div>
+<h1>append md</h1>
+<h2 id="a" tabindex="-1">a <a class="header-anchor" href="#a">¶</a></h2>
+<p>abc</p>
+<h2 id="b" tabindex="-1">b <a class="header-anchor" href="#b">¶</a></h2>
+<p>012</p>
+
+<div class='system_date disp_create_date'>20240402133416</div><div class='system_date disp_create_date'>Created : 2024/04/02 13:34:16</div><div class='system_date disp_create_date'>20240402133416</div><div class='system_date disp_create_date'>Updated : 2024/04/02 13:34:16</div><div class='system_date disp_create_date'>Updated : 2024/04/02 13:34:16</div></body>
+</html>

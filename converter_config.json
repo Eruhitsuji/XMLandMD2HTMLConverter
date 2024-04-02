@@ -1,0 +1,12 @@
+{
+    "page_config_tag":"page_config",
+    "raw_data_tag":"raw_data",
+    "md_data_tag":"md_data",
+    "sp_tag":"special_tag",
+
+    "tmp_dir":".tmp/",
+    "tmp_md_file":"tmp.md",
+    "tmp_html_file":"tmp.html",
+
+    "default_suffix":"html"
+}

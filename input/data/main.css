@@ -1,0 +1,167 @@
+html{
+    padding: 10px;
+    width:max(95%,150px);
+}
+
+
+/* default headings */
+
+h1, h2, h3, h4, h5, h6 {
+    margin:6px;
+    padding: 0.1em 0.3em;
+    width:max(100%,100px);
+}
+
+h1, h2 {
+	border-bottom: 3px solid #888888;
+}
+
+h3, h4, h5, h6 {
+	border-bottom: 3px dashed #888888;
+}
+
+h1{
+	border-left: 10px solid #EB0206;
+}
+
+h2{
+	border-left: 10px solid #EE9531;
+}
+
+h3{
+	border-left: 10px solid #F6F938;
+}
+
+h4{
+	border-left: 10px solid #61D52C;
+}
+
+h5{
+	border-left: 10px solid #2C35D0;
+}
+
+h6{
+	border-left: 10px solid #39E6DC;
+}
+
+a.header-anchor {
+    color: #e1e4e8;
+}
+
+
+/* table */
+
+table{
+    border-collapse:  collapse;
+    margin:10px;
+}
+
+td{
+    border: solid 1px black;
+    padding:3px;
+}
+
+.td_head{
+    background-color: lightgray;
+    font-weight: bold;
+}
+
+
+/* table-of-contents */
+
+.table-of-contents {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    width: fit-content;
+    position: relative;
+}
+
+.table-of-contents ul {
+    list-style-type: none;
+    padding: 0 16px 0 16px;
+    margin: 0;
+    width: fit-content;
+    position: relative;
+}
+
+
+/* code */
+
+pre{
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 5px;
+    background: #222222;
+    color: #ffffff;
+    white-space: pre-wrap;
+}
+code{
+    display: inline-block;
+    padding: 0.1em 0.25em;
+    color: #ffffff;
+    background-color: #444444;
+    border-radius: 3px;
+    border: solid 1px #d6dde4;
+}
+
+
+
+/* blockquote */
+
+blockquote {
+    position: relative;
+    padding: 30px 15px 8px 15px;
+    box-sizing: border-box;
+    font-style: italic;
+    background: #efefef;
+    color: #555;
+}
+
+blockquote:before{
+    display: inline-block;
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    content: "\f10d";
+    font-family: FontAwesome;
+    color: #cfcfcf;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
+}
+
+
+/* others */
+
+.mermaid {
+    margin-bottom: 16px;
+}
+
+.imgbox{
+    display: block;
+    margin: 0 auto;
+    width: min(90%,500px);
+}
+
+.space_20px{
+    padding:20px;
+}
+
+.system_date{
+    font-size: 10px;
+    display: grid;
+    justify-content: flex-end;
+}

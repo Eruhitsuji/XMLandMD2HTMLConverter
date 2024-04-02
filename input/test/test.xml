@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<!--
+  "page_config" tag can be used to configure page output
+    out_base_dir : output project directory
+    out_dir : output directory
+    filename : output file name
+    title : setting page title
+    priority : priority used in sitemap
+-->
+<!-- The following code will produce output in the following paths -> x/y/z.html -->
+<!-- <page_config> out_base_dir="x" out_dir="y" filename="z.html" title="xyz"/> -->
+<page_config title="test_x" priority=1.0 />
+
+<special_tag text="<!DOCTYPE html>"/>
+<special_tag text="<html lang='ja'>"/>
+
+<special_tag input_raw_data="test/head.html">
+
+<special_tag text="<body>"/>
+
+<!-- body -->
+
+<special_tag input_md_data="test/test_md.md" />
+
+<!--
+  Use of "md_data" tag converts Markdown to HTML
+-->
+<md_data>
+
+# test
+
+ABC
+
+- A
+- B
+- C
+
+</md_data>
+
+<!--
+  Using the "raw_data" tag will output HTML and PHP as is.
+  You can also embed PHP
+-->
+<raw_data>
+<p>abc</p>
+</raw_data>
+
+<!--
+  HTML can be added directly by specifying text in the "special_tag" tag
+-->
+<special_tag text="<b>text test</b>"/>
+
+<!--
+  Specify input_raw_data in the "special_tag" tag to add text data for that path
+-->
+<special_tag input_raw_data="test/append.html">
+
+<!--
+  Specify input_md_data in the "special_tag" tag allows you to add a Markdown to HTML conversion of that path
+-->
+<special_tag input_md_data="test/append.md">
+
+<!--
+  Specify disp_create_date in the "special_tag" tag to add the date and time the file was created
+  
+  The optional argument allows you to specify the format of the string to be displayed
+  The format can be specified in the same way as Python's datetime.datetime.strftime
+  Also, specifying "0" as an argument sets the default to "%Y%m%d%H%M%S"
+
+  In this output block, the classes "system_date" and "disp_create_date" are specified
+  However, some UNIXes such as Windows and macOS are not supported
+-->
+<special_tag disp_create_date="0">
+<special_tag disp_create_date="Created : %Y/%m/%d %H:%M:%S">
+
+<!--
+  Specify disp_update_date in the "special_tag" tag to add the date and time the file was updated
+  
+  The optional argument allows you to specify the format of the string to be displayed
+  The format can be specified in the same way as Python's datetime.datetime.strftime
+  Also, specifying "0" as an argument sets the default to "%Y%m%d%H%M%S"
+
+  In this output block, the classes "system_date" and "disp_update_date" are specified
+-->
+<special_tag disp_create_date="0">
+<special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
+
+<special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
+<special_tag text="</body>"/>
+<special_tag text="</html>"/>

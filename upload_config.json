@@ -1,0 +1,14 @@
+{
+    "input_base_dir":"input",
+
+    "input_xml_glob_list":["**/*.xml"],
+    "exclude_input_xml_glob_list":["data/hoge.xml"],
+    
+    "input_copy_data_glob_list":["data/**/*"],
+    "exclude_input_copy_data_glob_list":["data/hoge.*"],
+
+    "output_base_dir":"output",
+
+    "domain":"",
+    "sitemap_xml_path":"sitemap.xml"
+}
