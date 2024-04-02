@@ -202,7 +202,7 @@ class SiteMap():
 
         for page in self.page_list:
             url_str=self.domain+str(page["path"])
-            update_date_str=page["update_date"].strftime("%Y-%m-%dT%H:%M:%S")
+            update_date_str=page["update_date"].strftime("%Y-%m-%d")
             priority_data=float(page.get("priority",1))
 
             if(priority_data>=0):
