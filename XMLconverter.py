@@ -193,6 +193,19 @@ class SiteMap():
         self.page_list=page_list
         self.domain="" if domain=="" else domain if domain[-1]=="/" else domain+"/"
     
+    def outDict(self):
+        r=[]
+        for page in self.page_list:
+            tmp={
+                "loc":str(page["path"]),
+                "page_title":page.get("title","None Title"),
+                "lastmod":page["update_date"].strftime("%Y-%m-%d"),
+                "priority":float(page.get("priority",1)),
+            }
+            if(tmp["priority"]>=0):
+                r.append(tmp)
+        return r
+
     def createXML(self,xml_path:str):
         DEFAULT_XMLNS="http://www.sitemaps.org/schemas/sitemap/0.9"
         
@@ -200,30 +213,26 @@ class SiteMap():
         urlset.set("xmlns",DEFAULT_XMLNS)
         tree=ET.ElementTree(element=urlset)
 
-        for page in self.page_list:
-            url_str=self.domain+str(page["path"])
-            update_date_str=page["update_date"].strftime("%Y-%m-%d")
-            priority_data=float(page.get("priority",1))
+        for page in self.outDict():
 
-            if(priority_data>=0):
+            if(page["priority"]>=0):
 
                 url_element=ET.SubElement(urlset,"url")
                 
                 loc=ET.SubElement(url_element,"loc")
-                loc.text=url_str
+                loc.text=page["loc"]
                 
                 lastmod=ET.SubElement(url_element,"lastmod")
-                lastmod.text=update_date_str
+                lastmod.text=page["lastmod"]
 
-                if("priority" in page):
-                    priority=ET.SubElement(url_element,"priority")
-                    priority.text=str(priority_data)
-                    
-                if("title" in page):
-                    title=ET.SubElement(url_element,"page_title")
-                    title.text=page["title"]
+                priority=ET.SubElement(url_element,"priority")
+                priority.text=str(page["priority"])
 
         tree.write(xml_path,encoding="utf-8",xml_declaration=True)
+    
+    def createJSON(self,json_path:str):
+        with open(json_path,mode="w",encoding="utf-8") as f:
+	        json.dump(self.outDict(),f,ensure_ascii=False,indent=4)
 
 class Upload():
     settings=json.load(open("upload_config.json",mode="r",encoding="utf-8"))
@@ -237,6 +246,7 @@ class Upload():
 
     DOMAIN=settings.get("domain","")
     SITEMAP_XML_PATH=settings.get("sitemap_xml_path","")
+    SITEMAP_JSON_PATH=settings.get("sitemap_json_path","")
 
     def findFile(glob_str_list,exclude_glob_str_list=[],base_dir=""):
         s_pwd=Path.cwd()
@@ -279,3 +289,5 @@ class Upload():
         site_map=SiteMap(page_list,Upload.DOMAIN)
         if(Upload.SITEMAP_XML_PATH!=""):
             site_map.createXML(Path(Path(Upload.OUTPUT_BASE_DIR)/Path(Upload.SITEMAP_XML_PATH)))
+        if(Upload.SITEMAP_JSON_PATH!=""):
+            site_map.createJSON(Path(Path(Upload.OUTPUT_BASE_DIR)/Path(Upload.SITEMAP_JSON_PATH)))

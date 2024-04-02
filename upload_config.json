@@ -10,5 +10,6 @@
     "output_base_dir":"output",
 
     "domain":"",
-    "sitemap_xml_path":"sitemap.xml"
+    "sitemap_xml_path":"sitemap.xml",
+    "sitemap_json_path":"sitemap.json"
 }

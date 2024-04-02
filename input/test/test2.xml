@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<special_tag text="<!DOCTYPE html>"/>
+<special_tag text="<html lang='ja'>"/>
+
+<special_tag input_raw_data="test/head.html">
+
+<special_tag text="<body>"/>
+
+<special_tag input_md_data="test/test_md.md" />
+
+<special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
+<special_tag text="</body>"/>
+<special_tag text="</html>"/>
