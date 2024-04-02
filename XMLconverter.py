@@ -201,20 +201,27 @@ class SiteMap():
         tree=ET.ElementTree(element=urlset)
 
         for page in self.page_list:
-            url=self.domain+str(page["path"])
-            update_date_str=page["update_date"].strftime("%Y-%m-%d %H:%M:%S")
+            url_str=self.domain+str(page["path"])
+            update_date_str=page["update_date"].strftime("%Y-%m-%dT%H:%M:%S")
+            priority_data=float(page.get("priority",1))
 
-            url_element=ET.SubElement(urlset,"url")
-            
-            loc=ET.SubElement(url_element,"loc")
-            loc.text=url
-            
-            lastmod=ET.SubElement(url_element,"lastmod")
-            lastmod.text=update_date_str
+            if(priority_data>=0):
 
-            if("priority" in page):
-                priority=ET.SubElement(url_element,"priority")
-                priority.text=page["priority"]
+                url_element=ET.SubElement(urlset,"url")
+                
+                loc=ET.SubElement(url_element,"loc")
+                loc.text=url_str
+                
+                lastmod=ET.SubElement(url_element,"lastmod")
+                lastmod.text=update_date_str
+
+                if("priority" in page):
+                    priority=ET.SubElement(url_element,"priority")
+                    priority.text=str(priority_data)
+                    
+                if("title" in page):
+                    title=ET.SubElement(url_element,"page_title")
+                    title.text=page["title"]
 
         tree.write(xml_path,encoding="utf-8",xml_declaration=True)
 

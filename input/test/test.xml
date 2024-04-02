@@ -10,7 +10,7 @@
 -->
 <!-- The following code will produce output in the following paths -> x/y/z.html -->
 <!-- <page_config> out_base_dir="x" out_dir="y" filename="z.html" title="xyz"/> -->
-<page_config title="test_x" priority=1.0 />
+<page_config title="test" priority=1.0 />
 
 <special_tag text="<!DOCTYPE html>"/>
 <special_tag text="<html lang='ja'>"/>
