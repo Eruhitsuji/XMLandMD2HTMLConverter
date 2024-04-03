@@ -8,6 +8,7 @@ import datetime
 import platform
 import glob
 import xml.etree.ElementTree as ET
+import urllib.request, urllib.error
 
 class XMLconverter():
     settings=json.load(open("converter_config.json",mode="r",encoding="utf-8"))
@@ -33,6 +34,7 @@ class XMLconverter():
         pp=Path(p)
         return Path(Path(pp.parent)/Path(str(pp.stem)+"."+new_suffix))
         
+
     def Tag2String(tag):
         ts=str(tag)
         s="<{name}>".format(name=tag.name)
@@ -59,6 +61,7 @@ class XMLconverter():
             text=text.replace(ssp,sp)
         return text
 
+
     def MD2HTML(dc):
         dc=XMLconverter.replaceHTMLSPChar(dc)
 
@@ -75,6 +78,7 @@ class XMLconverter():
             dch=f.read()
         XMLconverter.allRemoveDir(XMLconverter.TMP_DIR)
         return dch   
+
 
     def path2updateDate(path:Path):
         return datetime.datetime.fromtimestamp(path.stat().st_mtime)
@@ -96,6 +100,25 @@ class XMLconverter():
         out_text+="<script>(function(t_str='"+title+"'){document.title=t_str;}());</script>"
         r_dict["title"]=title
         return (r_dict,out_text)
+
+
+    def checkURL(url):
+        try:
+            f=urllib.request.urlopen(url)
+            t=f.read().decode()
+            f.close()
+            return (True,t)
+        except:
+            return (False,None)
+
+    def readFile(input,input_base_dir=""):
+        url_flag,url_text=XMLconverter.checkURL(input)
+        if(url_flag):
+            return url_text
+        else:
+            with open(Path(Path(input_base_dir)/Path(input)),mode="r",encoding="utf-8") as f:
+                text=f.read()
+            return text
 
 
     def XML2HTML(input,input_base_dir="",out_base_dir=""):
@@ -148,14 +171,10 @@ class XMLconverter():
                     out_text+=d["text"]+"\n"
                 
                 if("input_raw_data" in d_a):
-                    with open(Path(Path(input_base_dir)/Path(d["input_raw_data"])),mode="r",encoding="utf-8") as f:
-                        ird=f.read()
-                    out_text+=ird+"\n"
+                    out_text+=XMLconverter.readFile(d["input_raw_data"],input_base_dir=input_base_dir)+"\n"
                 
-                if("input_md_data" in d_a):
-                    with open(Path(Path(input_base_dir)/d["input_md_data"]),mode="r",encoding="utf-8") as f:
-                        imd=f.read()            
-                    out_text+=XMLconverter.MD2HTML(imd)+"\n"
+                if("input_md_data" in d_a):        
+                    out_text+=XMLconverter.MD2HTML(XMLconverter.readFile(d["input_md_data"],input_base_dir=input_base_dir))+"\n"
                 
                 if("rename_title" in d_a):
                     (r_dict,out_text)=XMLconverter.setTitle(r_dict,out_text,d_a["rename_title"])

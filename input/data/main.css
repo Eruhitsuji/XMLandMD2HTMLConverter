@@ -54,16 +54,30 @@ a.header-anchor {
 table{
     border-collapse:  collapse;
     margin:10px;
+    text-align:center;
+    border: solid 2px black;
 }
 
-td{
+td,th{
     border: solid 1px black;
     padding:3px;
 }
 
-.td_head{
+.td_head,th{
     background-color: lightgray;
     font-weight: bold;
+}
+
+.bottom_bold{
+    border-bottom: 2px #000000 solid;
+}
+
+.bottom_double{
+    border-bottom: 2px #000000 double;
+}
+
+.bottom_dashed{
+    border-bottom: 2px dashed #000000;
 }
 
 

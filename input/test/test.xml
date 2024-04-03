@@ -55,11 +55,13 @@ ABC
   Specify input_raw_data in the "special_tag" tag to add text data for that path
 -->
 <special_tag input_raw_data="test/append.html">
+<special_tag input_raw_data="https://raw.githubusercontent.com/Eruhitsuji/XMLandMD2HTMLConverter/main/input/test/append.html">
 
 <!--
   Specify input_md_data in the "special_tag" tag allows you to add a Markdown to HTML conversion of that path
 -->
 <special_tag input_md_data="test/append.md">
+<special_tag input_md_data="https://raw.githubusercontent.com/Eruhitsuji/XMLandMD2HTMLConverter/main/input/test/append.md">
 
 <!--
   Specify disp_create_date in the "special_tag" tag to add the date and time the file was created
