@@ -88,6 +88,56 @@ ABC
 <special_tag disp_create_date="0">
 <special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
 
+
+<special_tag text="<h1>test special character</h1>">
+<special_tag text="<h2>raw_data</h2>">
+
+<raw_data>
+<li>
+    <span style='color:red;'>abc</span>
+</li>
+<li>
+    &lt;span style='color:red;'&gt;abc&lt;/span&gt;
+</li>
+<li>
+    &rt_lt;span style='color:red;'&rt_gt;abc&rt_lt;/span&rt_gt;
+</li>
+<li>
+    &rt_quot;abc&rt_quot;
+</li>
+</raw_data>
+
+<special_tag text="<h2>md_data</h2>">
+<md_data>
+- <span style='color:red;'>abc</span>
+- &lt;span style='color:red;'&gt;abc&lt;/span&gt;
+- &rt_lt;span style='color:red;'&rt_gt;abc&rt_lt;/span&rt_gt;
+- &rt_quot;abc&rt_quot;
+</md_data>
+
+<special_tag text="<h2>input_raw_data</h2>">
+<special_tag input_raw_data="test/sp_test.html">
+
+<special_tag text="<h2>input_md_data</h2>">
+<special_tag input_md_data="test/sp_test.md">
+
+<special_tag text="<h2>direct text</h2>">
+<special_tag text="
+<li>
+    <span style='color:red;'>abc</span>
+</li>
+<li>
+    &lt;span style='color:red;'&gt;abc&lt;/span&gt;
+</li>
+<li>
+    &rt_lt;span style='color:red;'&rt_gt;abc&rt_lt;/span&rt_gt;
+</li>
+<li>
+    &rt_quot;abc&rt_quot;
+</li>
+">
+
+
 <special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
 <special_tag text="</body>"/>
 <special_tag text="</html>"/>

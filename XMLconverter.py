@@ -43,7 +43,7 @@ class XMLconverter():
         ts=ts.replace(e,"")
         return ts
 
-    def replaceHTMLSPChar(text:str):
+    def replaceHTMLSPChar(text:str,mode="A"):
         replace_list=[
             ("gt",">"),
             ("lt","<"),
@@ -51,19 +51,37 @@ class XMLconverter():
         ]
 
         for r in replace_list:
-            ssp="&rrt_{};".format(r[0])
-            sp="&rt_{};".format(r[0])
+            
+            sp_rt="####rt_{0}_TMP_SPECIAL_CHARACTER_STR_{0}_{0}_TMP_SPECIAL_CHARACTER_STR_{0}_rt####".format(r[0])
+            sp_before="####before_{0}_TMP_SPECIAL_CHARACTER_STR_{0}_{0}_TMP_SPECIAL_CHARACTER_STR_{0}_before####".format(r[0])
+
+            rt="&rt_{};".format(r[0])
             before="&{};".format(r[0])
             after=r[1]
-
-            text=text.replace(before,after)
-            text=text.replace(sp,before)
-            text=text.replace(ssp,sp)
+            
+            if(mode=="raw_text_conv"):
+                text=text.replace(rt,sp_rt)
+                text=text.replace(before,sp_before)
+            elif(mode=="input_file_conv"):
+                text=text.replace(rt,sp_rt)
+            elif(mode=="direct_text_conv"):
+                pass
+            elif(mode=="soup_find_after_conv"):
+                pass
+            elif(mode=="md_before_conv"):
+                pass
+            elif(mode=="md_after_conv"):
+                pass
+            elif(mode=="raw_data_conv"):
+                pass
+            elif(mode=="last_conv"):
+                text=text.replace(sp_rt,after)
+                text=text.replace(sp_before,before)
         return text
 
 
     def MD2HTML(dc):
-        dc=XMLconverter.replaceHTMLSPChar(dc)
+        dc=XMLconverter.replaceHTMLSPChar(dc,mode="md_before_conv")
 
         XMLconverter.allRemoveDir(XMLconverter.TMP_DIR)
         os.makedirs(XMLconverter.TMP_DIR,exist_ok=True)
@@ -77,7 +95,7 @@ class XMLconverter():
         with open(XMLconverter.TMP_DIR+XMLconverter.TMP_HTML_FILE,mode="r",encoding="utf-8") as f:
             dch=f.read()
         XMLconverter.allRemoveDir(XMLconverter.TMP_DIR)
-        return dch   
+        return XMLconverter.replaceHTMLSPChar(dch,mode="md_after_conv")
 
 
     def path2updateDate(path:Path):
@@ -113,12 +131,13 @@ class XMLconverter():
 
     def readFile(input,input_base_dir=""):
         url_flag,url_text=XMLconverter.checkURL(input)
+        text=""
         if(url_flag):
-            return url_text
+            text=url_text
         else:
             with open(Path(Path(input_base_dir)/Path(input)),mode="r",encoding="utf-8") as f:
                 text=f.read()
-            return text
+        return XMLconverter.replaceHTMLSPChar(text,mode="input_file_conv")
 
 
     def XML2HTML(input,input_base_dir="",out_base_dir=""):
@@ -141,12 +160,14 @@ class XMLconverter():
         r_dict["create_date"]=create_date
         r_dict["update_date"]=update_date
 
+        raw_text=XMLconverter.replaceHTMLSPChar(raw_text,"raw_text_conv")
+
         # main process
         soup = BeautifulSoup(raw_text, 'html.parser')
         for d in soup.findAll([XMLconverter.PAGE_CONFIG_TAG,XMLconverter.RAW_DATA_TAG,XMLconverter.MD_DATA_TAG,XMLconverter.SP_TAG]):
             d_a=d.attrs
             print(d.name,d_a)
-            dc=XMLconverter.replaceHTMLSPChar(XMLconverter.Tag2String(d))
+            dc=XMLconverter.replaceHTMLSPChar(XMLconverter.Tag2String(d),mode="soup_find_after_conv")
             
             if(d.name==XMLconverter.PAGE_CONFIG_TAG):
                 if("out_base_dir" in d_a):
@@ -164,11 +185,11 @@ class XMLconverter():
                 out_text+=XMLconverter.MD2HTML(dc)+"\n"
 
             elif(d.name==XMLconverter.RAW_DATA_TAG):
-                out_text+=dc+"\n"
+                out_text+=XMLconverter.replaceHTMLSPChar(dc,mode="raw_data_conv")+"\n"
 
             elif(d.name==XMLconverter.SP_TAG):
                 if("text" in d_a):
-                    out_text+=d["text"]+"\n"
+                    out_text+=XMLconverter.replaceHTMLSPChar(d["text"],mode="direct_text_conv")+"\n"
                 
                 if("input_raw_data" in d_a):
                     out_text+=XMLconverter.readFile(d["input_raw_data"],input_base_dir=input_base_dir)+"\n"
@@ -195,7 +216,7 @@ class XMLconverter():
                     
                     out_text+="<div class='system_date disp_update_date'>{ds}</div>".format(ds=ds)    
 
-        #out_text=XMLconverter.replaceHTMLSPChar(out_text)
+        out_text=XMLconverter.replaceHTMLSPChar(out_text,mode="last_conv")
         
         # output
         output_path=Path(out_base_dir/output)

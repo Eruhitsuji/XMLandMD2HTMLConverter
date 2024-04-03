@@ -1,4 +1,3 @@
-
 # Markdown test
 
 ## Table of Contents
@@ -207,6 +206,19 @@ This project allows you to convert from XML to HTML, including HTML and Markdown
 
 ## Special character
 
-The three symbols <,>," will eventually be converted and may not be displayed in this project.
-The same applies to the special characters ```&rt_lt;```, ```&rt_gt;```, and ```&rt_quot;``` in HTML.
-To solve those cases, try prefixing the sign with "rt_" and assigning ```&rrt_lt;```, ```&rrt_gt;``` and ```&rrt_quot;```.
+The three characters <,> and " are treated as special characters.
+These special characters will have different final display contents depending on how the text is read.
+
+When an HTML tag is used, the output is actually recognized as an HTML tag only in the case of "v" in the following table.
+
+||raw[^sc_1]|&**;[^sc_2]|&rt_**;[^sc_3]|
+|:-:|:-:|:-:|:-:|
+|```<raw_data>```|v||v|
+|```<md_data>```|||v|
+|```<special_tag input_raw_data="***">```|v||v|
+|```<special_tag input_md_data="***">```|||v|
+|```<special_tag text="***">```|v||v|
+
+[^sc_1]: If you write directly <> and "
+[^sc_2]: When "lt", "gt", and "quot" are enclosed with "&" and ";" as in HTML special characters
+[^sc_3]: When "lt", "gt", and "quot" are enclosed in "&rt_" and ";"

@@ -1,0 +1,4 @@
+- <span style='color:red;'>abc</span>
+- &lt;span style='color:red;'&gt;abc&lt;/span&gt;
+- &rt_lt;span style='color:red;'&rt_gt;abc&rt_lt;/span&rt_gt;
+- &rt_quot;abc&rt_quot;
