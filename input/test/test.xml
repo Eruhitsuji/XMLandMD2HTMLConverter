@@ -10,25 +10,31 @@
 -->
 <!-- The following code will produce output in the following paths -> x/y/z.html -->
 <!-- <page_config> out_base_dir="x" out_dir="y" filename="z.html" title="xyz"/> -->
-<page_config title="test" priority=1.0 />
+<page_config title="test" priority=0.1 />
 
 <special_tag text="<!DOCTYPE html>"/>
 <special_tag text="<html lang='ja'>"/>
 
-<special_tag input_raw_data="test/head.html">
+<special_tag input_raw_data="_template/head.html">
 
 <special_tag text="<body>"/>
 
-<!-- body -->
+<special_tag input_raw_data="_template/page_header.html">
 
+<!-- body -->
 <special_tag input_md_data="test/test_md.md" />
 
+
+<special_tag text="<h1>Test</h1>" />
+
+
+<special_tag text="<h2>md_data</h2>" />
 <!--
   Use of "md_data" tag converts Markdown to HTML
 -->
 <md_data>
 
-# test
+## test
 
 ABC
 
@@ -38,6 +44,8 @@ ABC
 
 </md_data>
 
+
+<special_tag text="<h2>raw_data</h2>" />
 <!--
   Using the "raw_data" tag will output HTML and PHP as is
   You can also embed PHP
@@ -51,47 +59,53 @@ echo("<p>php test</p>");
 ?&rt_gt;
 </raw_data>
 
+
+<special_tag text="<h2>special_tag text</h2>" />
 <!--
   HTML can be added directly by specifying text in the "special_tag" tag
 -->
 <special_tag text="<b>text test</b>"/>
 
+
+<special_tag text="<h2>special_tag input_raw_data</h2>" />
 <!--
   Specify input_raw_data in the "special_tag" tag to add text data for that path
 -->
 <special_tag input_raw_data="test/append.html">
 <special_tag input_raw_data="https://raw.githubusercontent.com/Eruhitsuji/XMLandMD2HTMLConverter/main/input/test/append.html">
 
+
+<special_tag text="<h2>special_tag input_md_data</h2>" />
 <!--
   Specify input_md_data in the "special_tag" tag allows you to add a Markdown to HTML conversion of that path
 -->
 <special_tag input_md_data="test/append.md">
 <special_tag input_md_data="https://raw.githubusercontent.com/Eruhitsuji/XMLandMD2HTMLConverter/main/input/test/append.md">
 
-<!--
+
+<special_tag text="<h2>special_tag disp_create_date</h2>" />
+<!--https://www.google.com/index.html
   Specify disp_create_date in the "special_tag" tag to add the date and time the file was created
+  However, some UNIXes such as Windows and macOS are not supported
   
   The optional argument allows you to specify the format of the string to be displayed
   The format can be specified in the same way as Python's datetime.datetime.strftime
   Also, specifying "0" as an argument sets the default to "%Y%m%d%H%M%S"
-
-  In this output block, the classes "system_date" and "disp_create_date" are specified
-  However, some UNIXes such as Windows and macOS are not supported
 -->
 <special_tag disp_create_date="0">
 <special_tag disp_create_date="Created : %Y/%m/%d %H:%M:%S">
 
+
+<special_tag text="<h2>special_tag disp_update_date</h2>" />
 <!--
   Specify disp_update_date in the "special_tag" tag to add the date and time the file was updated
   
   The optional argument allows you to specify the format of the string to be displayed
   The format can be specified in the same way as Python's datetime.datetime.strftime
   Also, specifying "0" as an argument sets the default to "%Y%m%d%H%M%S"
-
-  In this output block, the classes "system_date" and "disp_update_date" are specified
 -->
-<special_tag disp_create_date="0">
-<special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
+<special_tag disp_update_date="0">
+<special_tag disp_update_date="Updated : %Y/%m/%d %H:%M:%S">
 
 
 <special_tag text="<h1>test special character</h1>">
@@ -144,5 +158,6 @@ echo("<p>php test</p>");
 
 
 <special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
+<special_tag input_raw_data="_template/page_footer.html">
 <special_tag text="</body>"/>
 <special_tag text="</html>"/>
