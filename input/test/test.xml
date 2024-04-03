@@ -39,11 +39,16 @@ ABC
 </md_data>
 
 <!--
-  Using the "raw_data" tag will output HTML and PHP as is.
+  Using the "raw_data" tag will output HTML and PHP as is
   You can also embed PHP
 -->
 <raw_data>
 <p>abc</p>
+
+<!--PHP test-->
+&rt_lt;?php
+echo("<p>php test</p>");
+?&rt_gt;
 </raw_data>
 
 <!--
