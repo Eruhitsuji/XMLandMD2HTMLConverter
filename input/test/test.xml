@@ -51,7 +51,7 @@ ABC
 <raw_data>
 <p>abc</p>
 
-<!--PHP test-->
+<h3>PHP test</h3>
 <p><div class="alert alert-warning">PHP is not supported on GitHub Page</div></p>
 
 &rt_lt;?php

@@ -32,5 +32,3 @@ python3 upload.py
 
 The output for [input directory](input) is [output directory](output).
 Also, a sample output page is [here](https://eruhitsuji.github.io/XMLandMD2HTMLConverter/output/test/test.html).
-
-
