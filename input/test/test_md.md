@@ -157,11 +157,25 @@ Name2 *Name Markup*
 
 ## Cord
 
+### C
+
+```c
+#include<stdio.h>
+int foo(int bar){
+  return bar+1;
+}
+
+int main(void){
+  printf("%d\n",foo(5));
+  return 0;
+}
+```
+
 ### JavaScript
 
-``` js
+```js
 var foo = function (bar) {
-    return bar++;
+  return bar+1;
 };
 
 console.log(foo(5));
@@ -171,9 +185,18 @@ console.log(foo(5));
 
 ```python
 def foo(bar):
-  return bar+=1
+  return bar+1
 
 print(foo(5))
+```
+
+## Markdown
+
+```Markdown
+# A
+## B
+### C
+abc
 ```
 
 ## HTML converter for server created

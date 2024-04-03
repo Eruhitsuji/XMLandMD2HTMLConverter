@@ -146,7 +146,7 @@ class XMLconverter():
         for d in soup.findAll([XMLconverter.PAGE_CONFIG_TAG,XMLconverter.RAW_DATA_TAG,XMLconverter.MD_DATA_TAG,XMLconverter.SP_TAG]):
             d_a=d.attrs
             print(d.name,d_a)
-            dc=XMLconverter.Tag2String(d)
+            dc=XMLconverter.replaceHTMLSPChar(XMLconverter.Tag2String(d))
             
             if(d.name==XMLconverter.PAGE_CONFIG_TAG):
                 if("out_base_dir" in d_a):
@@ -195,7 +195,7 @@ class XMLconverter():
                     
                     out_text+="<div class='system_date disp_update_date'>{ds}</div>".format(ds=ds)    
 
-        out_text=XMLconverter.replaceHTMLSPChar(out_text)
+        #out_text=XMLconverter.replaceHTMLSPChar(out_text)
         
         # output
         output_path=Path(out_base_dir/output)
