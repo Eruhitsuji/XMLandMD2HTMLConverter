@@ -72,7 +72,7 @@ echo(&rt_quot;<p>php test</p>&rt_quot;);
   Specify input_raw_data in the "special_tag" tag to add text data for that path
 -->
 <special_tag input_raw_data="test/append.php">
-<special_tag input_raw_data="https://raw.githubusercontent.com/Eruhitsuji/XMLandMD2HTMLConverter/main/input/test/append.html">
+<special_tag input_raw_data="https://raw.githubusercontent.com/Eruhitsuji/XMLandMD2HTMLConverter/main/input/test/append.php">
 
 
 <special_tag text="<h2>special_tag input_md_data</h2>" />
