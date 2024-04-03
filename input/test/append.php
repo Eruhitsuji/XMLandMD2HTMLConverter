@@ -65,5 +65,7 @@
 </table>
 
 <?php
-echo("php test2");
+$n=10;
+echo("<p>php test2</p>");
+print_r($n);
 ?>
