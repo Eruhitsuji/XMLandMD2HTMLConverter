@@ -114,6 +114,7 @@ pre{
 code{
     display: inline-block;
     padding: 0.1em 0.25em;
+    width:100%;
     color: #ffffff;
     background-color: #444444;
     border-radius: 3px;
