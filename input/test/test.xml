@@ -15,11 +15,9 @@
 <special_tag text="<!DOCTYPE html>"/>
 <special_tag text="<html lang='ja'>"/>
 
-<special_tag input_raw_data="_template/head.html">
+<special_tag input_raw_data="test/head.html">
 
 <special_tag text="<body>"/>
-
-<special_tag input_raw_data="_template/page_header.html">
 
 <!-- body -->
 <special_tag input_md_data="test/test_md.md" />
@@ -158,6 +156,5 @@ echo("<p>php test</p>");
 
 
 <special_tag disp_create_date="Updated : %Y/%m/%d %H:%M:%S">
-<special_tag input_raw_data="_template/page_footer.html">
 <special_tag text="</body>"/>
 <special_tag text="</html>"/>
