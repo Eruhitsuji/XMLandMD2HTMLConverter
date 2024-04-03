@@ -64,6 +64,7 @@
     </tr>
 </table>
 
+<h4>PHP test</h4>
 <?php
 $n=10;
 echo("<p>php test2</p>");
