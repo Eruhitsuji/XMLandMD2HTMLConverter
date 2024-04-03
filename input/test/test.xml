@@ -52,6 +52,8 @@ ABC
 <p>abc</p>
 
 <!--PHP test-->
+<p><div class="alert alert-warning">PHP is not supported on GitHub Page</div></p>
+
 &rt_lt;?php
 echo(&rt_quot;<p>php test</p>&rt_quot;);
 ?&rt_gt;

@@ -30,5 +30,7 @@ python3 upload.py
 
 ## Sample of this project
 
-The output for [input directory](output) is [output directory](input).
+The output for [input directory](input) is [output directory](output).
 Also, a sample output page is [here](https://eruhitsuji.github.io/XMLandMD2HTMLConverter/output/test/test.html).
+
+
