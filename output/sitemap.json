@@ -1,12 +1,14 @@
 [
     {
         "loc": "test/test.html",
+        "path": "test/test.html",
         "page_title": "test",
-        "lastmod": "2024-04-04",
+        "lastmod": "2024-04-29",
         "priority": 0.1
     },
     {
         "loc": "test/test2.html",
+        "path": "test/test2.html",
         "page_title": "None Title",
         "lastmod": "2024-04-03",
         "priority": 1.0

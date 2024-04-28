@@ -6,11 +6,13 @@
     out_dir : output directory
     filename : output file name
     title : setting page title
+    canonical : set canonical URL for search engines
     priority : priority used in sitemap
 -->
+<page_config title="test" canonical="https://eruhitsuji.github.io/XMLandMD2HTMLConverter/output/test/test.html" priority=0.1 />
+<!-- EXAMPLE -->
 <!-- The following code will produce output in the following paths -> x/y/z.html -->
 <!-- <page_config> out_base_dir="x" out_dir="y" filename="z.html" title="xyz"/> -->
-<page_config title="test" priority=0.1 />
 
 <special_tag text="<!DOCTYPE html>"/>
 <special_tag text="<html lang='ja'>"/>

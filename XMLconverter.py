@@ -64,6 +64,10 @@ class XMLconverter():
                 text=text.replace(before,sp_before)
             elif(mode=="input_file_conv"):
                 text=text.replace(rt,sp_rt)
+            elif(mode=="last_conv"):
+                text=text.replace(sp_rt,after)
+                text=text.replace(sp_before,before)
+            """
             elif(mode=="direct_text_conv"):
                 pass
             elif(mode=="soup_find_after_conv"):
@@ -74,9 +78,7 @@ class XMLconverter():
                 pass
             elif(mode=="raw_data_conv"):
                 pass
-            elif(mode=="last_conv"):
-                text=text.replace(sp_rt,after)
-                text=text.replace(sp_before,before)
+            """
         return text
 
 
@@ -178,6 +180,8 @@ class XMLconverter():
                     output=Path(Path(output.parent)/Path(d["filename"]))
                 if("title" in d_a):
                     (r_dict,out_text)=XMLconverter.setTitle(r_dict,out_text,d_a["title"])
+                if("canonical"in d_a):
+                    out_text+="<head><link rel='canonical' href='{}' /></head>".format(d_a["canonical"])
                 if("priority" in d_a):
                     r_dict["priority"]=d_a["priority"]
 
@@ -238,6 +242,7 @@ class SiteMap():
         for page in self.page_list:
             tmp={
                 "loc":self.domain+str(page["path"]),
+                "path":str(page["path"]),
                 "page_title":page.get("title","None Title"),
                 "lastmod":page["update_date"].strftime("%Y-%m-%d"),
                 "priority":float(page.get("priority",1)),
